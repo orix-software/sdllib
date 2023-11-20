@@ -1,0 +1,1 @@
+cl65 -o joy -I include/SDL2/ -t telestrat samples/joy.c SDL8.lib
