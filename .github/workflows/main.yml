@@ -150,6 +150,7 @@ jobs:
             echo "Bpm version :"
             ls -l 
             bpm --force-update --replace-for-new-project -V
+            bpm install
             bpm build
           else
             CC65_HOME=${GITHUB_WORKSPACE}/../cc65 make
