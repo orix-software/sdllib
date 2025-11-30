@@ -1,16 +1,15 @@
 .include "SDL.inc"
 
-.export error
-
 .export _SDL_Init
 
-.proc _SDL_Init
-  lda    #$00
-  sta    error
+.import SDL_Init
 
-  rts
+.proc _SDL_Init
+  ;;@proto unsigned char SDL_Init(char value)
+  ;;@brief Init sdl
+  ;;@inputPARAM_value : value to init sdl with SDL_INIT_EVENTS
+  jmp   SDL_Init
+
 .endproc
 
-error:
-  .res SDL_ERROR_MESSAGE_LENGTH
 
