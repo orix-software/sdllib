@@ -1,3 +1,0 @@
-[submodule "orix"]
-	path = src/orix_kernel
-	url = https://github.com/orix_software/kernel
