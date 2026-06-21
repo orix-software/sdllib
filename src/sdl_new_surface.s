@@ -68,19 +68,22 @@ continue:
     inc     sdl_number_of_surface
     ; Store first offset of surface
     ; Ptr for sdl surface
+
+
     sta     sdl_all_surface_struct_ptr_low
     sty     sdl_all_surface_struct_ptr_high
 
+    ; Compute offset for data
     sty     sdl_data_ptr_high
     clc
     adc     #(.sizeof(SDL_Surface) * SDL_MAX_SURFACE)
     bcc     @no_inc_data_ptr
-    inc     sdl_all_surface_struct_ptr_high
+    inc     sdl_data_ptr_high
 @no_inc_data_ptr:
     sta     sdl_data_ptr_low
 
     ldx     #$00 ; First surface
-
+    lda     sdl_all_surface_struct_ptr_low
     ; A  and Y contains ptr
     ; X contain the id of the surface
     rts

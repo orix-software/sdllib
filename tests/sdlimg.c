@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
     SDL_Surface *screen_surface;
 
     const char *img_hir = "/usr/share/atomix/atomix.hir";
-    unsigned char atomix_img_width = 28;
+    unsigned char atomix_img_width = 27;
     unsigned char atomix_img_height = 40;
     printf("Chargement de l'image: %s\n", img_hir);
 
@@ -99,24 +99,22 @@ if (SDL_Init(SDL_INIT_VIDEO) != 0) {
     image_surface = IMG_Load(img_hir);
     if (!image_surface) {
         SDL_Quit();
+        SDL_DestroyWindow(window);
         printf("Erreur de chargement de l'image: %s\n", IMG_GetError());
+
     /*
         SDL_DestroyRenderer(renderer);
-        SDL_DestroyWindow(window);
         IMG_Quit();
-        SDL_Quit();
-*/
+    */
         return 1;
     }
-    else {
-        printf("Img load OK: %s\n", img_hir);
-    }
+
 
 
     image_surface->w = atomix_img_width;
     image_surface->h = atomix_img_height;
 
-      SDL_BlitSurface(image_surface, NULL, screen_surface, NULL);
+  //  SDL_BlitSurface(image_surface, NULL, screen_surface, NULL);
 /*
     // 5. Mettre à jour l'affichage
     SDL_UpdateWindowSurface(window);
@@ -174,8 +172,8 @@ if (SDL_Init(SDL_INIT_VIDEO) != 0) {
     SDL_DestroyWindow(window);
     IMG_Quit();
 */
-    cgetc();
-    SDL_Quit();
+   cgetc();
+   SDL_Quit();
 
     return 0;
 }

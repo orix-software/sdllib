@@ -7,7 +7,7 @@
     ;int SDL_BlitSurface(SDL_Surface *src, void *srcrect, SDL_Surface *dst, void *dstrect);
     ;Perform a fast blit from the source surface to the destination surface.
     ;DSTRECT and SRCRECT are currently ignored, as they are not used in the current implementation of SDL_BlitSurface. The function will always blit the entire source surface to the destination surface.
-   
+
     ; RES  : dst SDL_Surface*
     ; A & X contains src ptr surface
 
@@ -43,6 +43,8 @@
     lda     (src_surface),y
     sta     src_surface_pixels + 1
 
+
+
     ldy     #SDL_Surface::w
     lda     (src_surface),y ; get ptr low dest surface
     sta     width
@@ -51,6 +53,8 @@
     lda     (src_surface),y ; get ptr low dest surface
     sta     height
 
+
+    ; Blit now
     ldx     #$00
 @restart:
     ldy     #$00

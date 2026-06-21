@@ -14,6 +14,8 @@
 
     ; Drop a & X
     ; dstrect
+@me:
+    jmp    @me
 
     jsr     popax ; dst
     ; store  dst SDL_Surface* in RES
@@ -25,6 +27,7 @@
     jsr     popax ; src SDL_Surface* in A and X
 
     ; A & X contains src SDL_Surface*
+
 
 
     jmp     SDL_BlitSurface ; SDL_BlitSurface is implemented in SDL_BlitSurface.s

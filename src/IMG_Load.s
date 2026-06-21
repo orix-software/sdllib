@@ -45,37 +45,41 @@
     stx     filename + 1
 
     ; Check if we load .hrs
-    ldy     #$FF
-@L1:
+    ldy     #$00
+@check_end:
+    lda     (filename),y
+    beq     @L1
     iny
+    bne     @check_end
+
+@L1:
+    ; Check .hir
+    dey
     lda     (filename),y
     beq     @EOS
-    cmp     #'.'
+    cmp     #'r'
     bne     @L1
-    iny
+    dey
+    lda     (filename),y
+    cmp     #'i'
+    bne     @EOS
+    dey
     lda     (filename),y
     cmp     #'h'
     bne     @EOS
-    iny
+    dey
     lda     (filename),y
-    cmp     #'r'
-    bne     @EOS
-    iny
-    lda     (filename),y
-    cmp     #'s'
-    bne     @EOS
-    iny
-    lda     (filename),y
-    bne     @EOS
+    cmp     #'.'
     ; file is a .hir file, we can load it
     beq     @load_file
+    ; No branch we did not found .hir
 
 @EOS:
     ; not a .hir file, we return an error
     lda     #IMG_ERROR_UNSUPPORTED_FORMAT
     sta     load_img_error
-    lda     #$FF
-    ldx     #$FF
+    lda     #$00
+    tax
     rts
 
 @load_file:
@@ -85,6 +89,9 @@
     cpx     #$FF
     bne     load
     ; Load file X and A contains $FF if error
+
+    lda     #IMG_ERROR_CANNOT_OPEN_FILE
+    sta     load_img_error
 
     ; Return null
     lda     #$00
@@ -110,7 +117,7 @@ load:
     jsr     sdl_get_surface_data_ptr_by_id
 
 @no_carry2:
-
+    ; FIXME !!! compute length of the file or else it should generate an overflow
     sta    PTR_READ_DEST
     sty    PTR_READ_DEST + 1
 
@@ -119,6 +126,7 @@ load:
     lda    #$FF
     ldy    #$FF
     ldx    fp
+
     BRK_TELEMON XFREAD ; RES, PTR_READ_DEST, TR0
 
     ; A and X contains length
