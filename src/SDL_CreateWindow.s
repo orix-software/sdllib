@@ -7,16 +7,26 @@
 .import sdl_window_main
 
 .proc SDL_CreateWindow
-    lda     sdl_is_running_under_xorix
+    ; RESB contains h
+    ; RESB + 1 contains w
+    ldy     sdl_is_running_under_xorix
     beq     under_xorix
     ; Not under Xorix
     ; There is only one window, so we can ignore the parameters and return a pointer to the SDL_WINDOW structure
 
     ; Set offset of the surface
+
+
     lda     #$00
     sta     sdl_window_main + SDL_Window::surface + SDL_Surface::pixels
     lda     #$A0
     sta     sdl_window_main + SDL_Window::surface + SDL_Surface::pixels + 1
+
+    lda     RESB
+    sta     sdl_window_main + SDL_Window::surface + SDL_Surface::h
+    lda     RESB + 1
+    sta     sdl_window_main + SDL_Window::surface + SDL_Surface::w
+
 
     ; start  XHIRES
     BRK_TELEMON XHIRES

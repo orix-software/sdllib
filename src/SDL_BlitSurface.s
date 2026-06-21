@@ -3,6 +3,8 @@
 
 .export SDL_BlitSurface
 
+.import sdl_table_6
+
 .proc SDL_BlitSurface
     ;int SDL_BlitSurface(SDL_Surface *src, void *srcrect, SDL_Surface *dst, void *dstrect);
     ;Perform a fast blit from the source surface to the destination surface.
@@ -45,8 +47,13 @@
 
 
 
-    ldy     #SDL_Surface::w
+    ldy     #SDL_Surface::w ; It's provides in pixel eg : 240 instead of 40, let's convert it
     lda     (src_surface),y ; get ptr low dest surface
+@me:
+    jmp     @me
+    tax
+    lda     sdl_table_6,x
+
     sta     width
 
     ldy     #SDL_Surface::h

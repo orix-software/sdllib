@@ -35,7 +35,7 @@
     filesize := TR3 ; and TR4
     filename := RES ; 2 bytes
 
-    sdl_surface_struct := HRS1 ; 2 bytes
+    sdl_surface_struct := HRS4 ; 2 bytes
     sdl_current_surface_id := HRS2 ; 1 bytes
     sdl_tmp := HRS2 + 1
 
@@ -109,7 +109,8 @@ load:
     jsr     sdl_new_surface ; Get ptr
     ; A and Y contains ptr struct
     ; X contains the id of the surface
-    sta     sdl_surface_struct
+
+    sta     sdl_surface_struct ; $51 $52 val = $5350
     sty     sdl_surface_struct + 1
     stx     sdl_current_surface_id
 
@@ -118,7 +119,8 @@ load:
 
 @no_carry2:
     ; FIXME !!! compute length of the file or else it should generate an overflow
-    sta    PTR_READ_DEST
+
+    sta    PTR_READ_DEST     ; $537C
     sty    PTR_READ_DEST + 1
 
     ; Get length of the file in A and X
@@ -132,6 +134,8 @@ load:
     ; A and X contains length
     stx     sdl_tmp
     ldy     sdl_tmp
+    ; Update size
+
     ldx     sdl_current_surface_id ; Get surface id
     jsr     sdl_surface_update_with_size_by_id
 
@@ -155,6 +159,7 @@ load:
     ; Return surface ptr
     lda     sdl_surface_struct
     ldx     sdl_surface_struct + 1
+
 
     rts
 

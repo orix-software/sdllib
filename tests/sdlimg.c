@@ -9,8 +9,8 @@ int main(int argc, char* argv[]) {
     SDL_Surface *screen_surface;
 
     const char *img_hir = "/usr/share/atomix/atomix.hir";
-    unsigned char atomix_img_width = 27;
-    unsigned char atomix_img_height = 40;
+    unsigned char atomix_img_width = 162; // 162  27
+    unsigned char atomix_img_height = 30;
     printf("Chargement de l'image: %s\n", img_hir);
 
 
@@ -114,7 +114,7 @@ if (SDL_Init(SDL_INIT_VIDEO) != 0) {
     image_surface->w = atomix_img_width;
     image_surface->h = atomix_img_height;
 
-  //  SDL_BlitSurface(image_surface, NULL, screen_surface, NULL);
+    SDL_BlitSurface(image_surface, NULL, screen_surface, NULL);
 /*
     // 5. Mettre à jour l'affichage
     SDL_UpdateWindowSurface(window);

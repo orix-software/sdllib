@@ -8,6 +8,7 @@
 
 char SDL_Init(char value); //  SDL_Init(SDL_INIT_VIDEO);
 void SDL_Quit();
+void SDL_Delay(unsigned int ms); // Delay execution for specified milliseconds
 void SDL_GetRelativeMouseState(signed char *x, signed char *y);
 
 
@@ -17,7 +18,7 @@ void SDL_GetRelativeMouseState(signed char *x, signed char *y);
 typedef struct SDL_Window SDL_Window;
 
 SDL_Window* SDL_CreateWindow(const char *title, unsigned char x, unsigned char y, unsigned char w, unsigned char h, unsigned char flags);
-SDL_DestroyWindow(SDL_Window* win);
+void SDL_DestroyWindow(SDL_Window* win);
 
 
 

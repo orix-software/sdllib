@@ -84,7 +84,8 @@ continue:
 
     ldx     #$00 ; First surface
     lda     sdl_all_surface_struct_ptr_low
-    ; A  and Y contains ptr
+    ldy     sdl_all_surface_struct_ptr_high
+    ; A  and Y contains ptr of the struct
     ; X contain the id of the surface
     rts
 .endproc

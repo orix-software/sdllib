@@ -14,11 +14,11 @@
 
     ; Drop a & X
     ; dstrect
-@me:
-    jmp    @me
+
 
     jsr     popax ; dst
     ; store  dst SDL_Surface* in RES
+
     sta     RES
     stx     RES + 1
 
