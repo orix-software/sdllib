@@ -8,7 +8,7 @@ int main(int argc, char* argv[]) {
     SDL_Surface* image_surface;
     SDL_Window *window;
     SDL_Surface *screen_surface;
-    SDL_Rect rect_atomix_position = {10, 20, 162, 50};
+    SDL_Rect rect_atomix_position = {120, 20, 162, 50};
     const char *img_hir = "/usr/share/atomix/atomix.hir";
     unsigned char atomix_img_width = 162; // 162  27
     unsigned char atomix_img_height = 30;
@@ -43,7 +43,7 @@ int main(int argc, char* argv[]) {
     image_surface->w = atomix_img_width;
     image_surface->h = atomix_img_height;
 
-    SDL_BlitSurface(image_surface, NULL, screen_surface, NULL);
+    SDL_BlitSurface(image_surface, NULL, screen_surface, &rect_atomix_position);
 
     // 5. Update the display
     SDL_UpdateWindowSurface(window);

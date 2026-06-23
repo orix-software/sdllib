@@ -1,7 +1,7 @@
 typedef struct SDL_Rect
 {
-    int x;
-    int y;
-    int w;
-    int h;
+    unsigned char x;
+    unsigned char y;
+    unsigned char w;
+    unsigned char h;
 } SDL_Rect;
