@@ -35,6 +35,7 @@ rom_compatible = "False"
 lib = "True"
 web_doc_command = "mkdocs build"
 oricutron_path = "/mnt/c/Users/plifp/OneDrive/oric/projets/github/jedeoric/oricutron_plugins_usbmouse/oricutron"
+mike_management = "True"
 
 [dependencies]
 ch376lib = "2025.4"

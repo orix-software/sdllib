@@ -18,6 +18,7 @@ void SDL_GetRelativeMouseState(signed char *x, signed char *y);
 typedef struct SDL_Window SDL_Window;
 
 SDL_Window* SDL_CreateWindow(const char *title, unsigned char x, unsigned char y, unsigned char w, unsigned char h, unsigned char flags);
+SDL_UpdateWindowSurface(SDL_Window *window);
 void SDL_DestroyWindow(SDL_Window* win);
 
 

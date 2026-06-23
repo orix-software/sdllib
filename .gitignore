@@ -1,3 +1,5 @@
 *.o
 *.lib
 .vscode/*
+bpmtmp/*
+build/*

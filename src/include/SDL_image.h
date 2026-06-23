@@ -4,6 +4,7 @@
 // Since 2026.3
 void IMG_Init(unsigned char value);
 SDL_Surface* IMG_Load(const char* file);
+void IMG_Quit();
 
 const char* IMG_GetError(void);
 

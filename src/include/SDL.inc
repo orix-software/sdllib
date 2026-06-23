@@ -25,6 +25,13 @@ SDL_ERROR_MESSAGE_LENGTH = 100
    surface .tag SDL_Surface
 .endstruct
 
+; SDL_Rect structure for blitting operations
+.struct SDL_Rect
+   rect_x .byte ; x position
+   rect_y .byte ; y position
+   rect_w .byte ; width
+   rect_h .byte ; height
+.endstruct
 
 IMG_ERROR_OK = 0
 IMG_ERROR_UNSUPPORTED_FORMAT = 1

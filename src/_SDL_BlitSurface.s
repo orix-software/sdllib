@@ -13,7 +13,8 @@
     ; DSTRECT and SRCRECT are currently ignored, as they are not used in the current implementation of SDL_BlitSurface. The function will always blit the entire source surface to the destination surface.
 
     ; Drop a & X
-    ; dstrect
+    sta     HRS2
+    stx     HRS2 + 1
 
 
     jsr     popax ; dst
