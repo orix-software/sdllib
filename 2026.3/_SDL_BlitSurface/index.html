@@ -1358,6 +1358,17 @@
 <h2 id="int-sdl_blitsurfacesdl_surface-src-const-sdl_rect-srcrect-sdl_surface-dst-const-sdl_rect-dstrect">int SDL_BlitSurface(SDL_Surface <em>src, const SDL_Rect </em>srcrect, SDL_Surface <em>dst, const SDL_Rect </em>dstrect);</h2>
 <p><strong><em>Description</em></strong></p>
 <p>Perform a fast blit from the source surface to the destination surface.</p>
+<p><strong><em>Input</em></strong></p>
+<ul>
+<li>src Pointer to the source SDL_Surface structure.</li>
+<li>srcrect Currently ignored. Intended for source rectangle definition (not implemented).</li>
+<li>dst Pointer to the destination SDL_Surface structure.</li>
+<li>dstrect Pointer to SDL_Rect structure. Only the x and y positions are used; width and height are ignored and taken from the source surface.</li>
+</ul>
+<p><strong><em>Returns</em></strong></p>
+<ul>
+<li>Returns 0 on success, or -1 on failure.</li>
+</ul>
 
 
 
