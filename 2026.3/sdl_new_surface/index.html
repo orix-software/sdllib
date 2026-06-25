@@ -61,11 +61,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#sdl_new_surface" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -889,19 +884,6 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    sdl_new_surface
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -913,32 +895,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sdl_new_surface" class="md-nav__link">
-    <span class="md-ellipsis">
-      sdl_new_surface
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1184,23 +1140,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sdl_new_surface" class="md-nav__link">
-    <span class="md-ellipsis">
-      sdl_new_surface
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1217,8 +1156,7 @@
 
   <h1>sdl_new_surface</h1>
 
-<hr/>
-<h2 id="sdl_new_surface">sdl_new_surface</h2>
+<p>;;@inputA contains the new size to allocate low (1 byte)   ;;@inputY contains the new size to allocate high (1 byte)   ;;@inputX reserved for future use, should be set to 0 by caller   ;;@inputMEM_RES contains the pointer to reallocate  (2 bytes)proc sdl_new_surface   ; returns in A &amp; Y the ptr of struct surface   ; X contains the id of the surface   lda     sdl_number_of_surface   beq     @allocate $02allocate_next_surface:   ldx     sdl_number_of_surface ; equal to 1   cpx     #SDL_MAX_SURFACE   beq     @oom   ; Get previous surface ptr offset to store in the current offset   dex   lda     sdl_all_surface_struct_ptr_high,x   inx   sta     sdl_all_surface_struct_ptr_high,x   dex   lda     sdl_all_surface_struct_ptr_low,x   inx   sta     sdl_all_surface_struct_ptr_low,x   ; Add the size of the SDL_Surface   clc   adc     #.sizeof(SDL_Surface)   sta     sdl_all_surface_struct_ptr_low,x   bcc     @no_inc   inc     sdl_all_surface_struct_ptr_high,xno_inc:   ; inc new surface   inc     sdl_number_of_surface   lda     sdl_all_surface_struct_ptr_low,x   ldy     sdl_all_surface_struct_ptr_high,x   ; X contains the id of the surface   rtsallocate:   malloc #(SDL_MAX_SURFACE * SDL_SIZE_DATA_SURFACE + .sizeof(SDL_Surface) * SDL_MAX_SURFACE)   cmp    #$00   bne    continue   cpy    #$00   bne    continueoom:   lda    #$00 ; Not redundant it's used for @allocate_next_surface   tay   ; A &amp; Y contains 0 if error   rtsontinue:   inc     sdl_number_of_surface   ; Store first offset of surface   ; Ptr for sdl surface   sta     sdl_all_surface_struct_ptr_low   sty     sdl_all_surface_struct_ptr_high   ; Compute offset for data   sty     sdl_data_ptr_high   clc   adc     #(.sizeof(SDL_Surface) * SDL_MAX_SURFACE)   bcc     @no_inc_data_ptr   inc     sdl_data_ptr_highno_inc_data_ptr:   sta     sdl_data_ptr_low   ldx     #$00 ; First surface   lda     sdl_all_surface_struct_ptr_low   ldy     sdl_all_surface_struct_ptr_high   ; A  and Y contains ptr of the struct   ; X contain the id of the surface   rtsendproc</p>
 
 
 

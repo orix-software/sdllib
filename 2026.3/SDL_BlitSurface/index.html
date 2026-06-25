@@ -1219,6 +1219,19 @@
 
 <hr/>
 <h2 id="sdl_blitsurface">SDL_BlitSurface</h2>
+<p><strong><em>Description</em></strong></p>
+<p>Performs a fast blit from the source surface to the destination surface.</p>
+<p><strong><em>Input</em></strong></p>
+<ul>
+<li>Accumulator : src Pointer to the source SDL_Surface structure (low)</li>
+<li>X Register : src Pointer to the source SDL_Surface structure (high)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">If specific width and height scaling is needed, use SDL_BlitScaled() instead.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">This is a simplified implementation that always blits the entire source surface.</p>
+</div>
 
 
 

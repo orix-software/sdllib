@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sdl_surface-img_loadunsigned-char-filename" class="md-skip">
+        <a href="#sdl_surface-_img_loadunsigned-char-filename" class="md-skip">
           Skip to content
         </a>
       
@@ -337,9 +337,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sdl_surface-img_loadunsigned-char-filename" class="md-nav__link">
+  <a href="#sdl_surface-_img_loadunsigned-char-filename" class="md-nav__link">
     <span class="md-ellipsis">
-      SDL_Surface IMG_Load(unsigned char filename)
+      SDL_Surface _IMG_Load(unsigned char filename);
     </span>
   </a>
   
@@ -1189,9 +1189,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sdl_surface-img_loadunsigned-char-filename" class="md-nav__link">
+  <a href="#sdl_surface-_img_loadunsigned-char-filename" class="md-nav__link">
     <span class="md-ellipsis">
-      SDL_Surface IMG_Load(unsigned char filename)
+      SDL_Surface _IMG_Load(unsigned char filename);
     </span>
   </a>
   
@@ -1215,9 +1215,17 @@
 
   <h1>IMG_Load</h1>
 
-<h2 id="sdl_surface-img_loadunsigned-char-filename">SDL_Surface<em> IMG_Load(unsigned char </em>filename)</h2>
+<h2 id="sdl_surface-_img_loadunsigned-char-filename">SDL_Surface<em> _IMG_Load(unsigned char </em>filename);</h2>
 <p><strong><em>Description</em></strong></p>
-<p>Load an image from a file and return a new surface with the image data in the specified format.</p>
+<p>Load an image from a file and return a new surface with the image data.</p>
+<p><strong><em>Input</em></strong></p>
+<ul>
+<li>filename The file name of the image to load. Must have .hrs extension.</li>
+</ul>
+<p><strong><em>Returns</em></strong></p>
+<ul>
+<li>A pointer to a new SDL_Surface containing the loaded image, or NULL on failure.</li>
+</ul>
 
 
 
