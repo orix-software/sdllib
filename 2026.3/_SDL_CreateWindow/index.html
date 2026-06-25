@@ -20,7 +20,7 @@
     
     
       
-        <title>SDL_CreateWindow - SDL LIB DOCUMENTATION</title>
+        <title>SDL_CreateWindow() - SDL LIB DOCUMENTATION</title>
       
     
     
@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#sdl_window-_sdl_createwindowconst-char-title-unsigned-char-x-unsigned-char-y-unsigned-char-w-unsigned-char-h-unsigned-char-flags" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -97,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SDL_CreateWindow
+              SDL_CreateWindow()
             
           </span>
         </div>
@@ -245,7 +250,7 @@
   
   
   <span class="md-ellipsis">
-    IMG_GetError
+    IMG_GetError()
     
   </span>
   
@@ -268,7 +273,7 @@
   
   
   <span class="md-ellipsis">
-    IMG_Init
+    IMG_Init()
     
   </span>
   
@@ -291,7 +296,7 @@
   
   
   <span class="md-ellipsis">
-    IMG_Load
+    IMG_Load()
     
   </span>
   
@@ -314,7 +319,7 @@
   
   
   <span class="md-ellipsis">
-    SDL_BlitSurface
+    SDL_BlitSurface()
     
   </span>
   
@@ -339,17 +344,56 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    SDL_CreateWindow()
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    SDL_CreateWindow
+    SDL_CreateWindow()
     
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sdl_window-_sdl_createwindowconst-char-title-unsigned-char-x-unsigned-char-y-unsigned-char-w-unsigned-char-h-unsigned-char-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      SDL_Window _SDL_CreateWindow(const char title, unsigned char x, unsigned char y, unsigned char w, unsigned char h, unsigned char flags);
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -368,7 +412,7 @@
   
   
   <span class="md-ellipsis">
-    SDL_Delay
+    SDL_Delay()
     
   </span>
   
@@ -391,7 +435,7 @@
   
   
   <span class="md-ellipsis">
-    SDL_DestroyWindow
+    SDL_DestroyWindow()
     
   </span>
   
@@ -414,7 +458,7 @@
   
   
   <span class="md-ellipsis">
-    SDL_FreeSurface
+    SDL_FreeSurface()
     
   </span>
   
@@ -437,7 +481,7 @@
   
   
   <span class="md-ellipsis">
-    SDL_GetError
+    SDL_GetErro()r
     
   </span>
   
@@ -460,7 +504,7 @@
   
   
   <span class="md-ellipsis">
-    SDL_GetRelativeMouseState
+    SDL_GetRelativeMouseState()
     
   </span>
   
@@ -483,7 +527,7 @@
   
   
   <span class="md-ellipsis">
-    SDL_GetWindowSurface
+    SDL_GetWindowSurface()
     
   </span>
   
@@ -506,7 +550,7 @@
   
   
   <span class="md-ellipsis">
-    SDL_Init
+    SDL_Init()
     
   </span>
   
@@ -529,7 +573,7 @@
   
   
   <span class="md-ellipsis">
-    SDL_Quit
+    SDL_Quit()
     
   </span>
   
@@ -1138,6 +1182,23 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sdl_window-_sdl_createwindowconst-char-title-unsigned-char-x-unsigned-char-y-unsigned-char-w-unsigned-char-h-unsigned-char-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      SDL_Window _SDL_CreateWindow(const char title, unsigned char x, unsigned char y, unsigned char w, unsigned char h, unsigned char flags);
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1152,9 +1213,24 @@
 
 
 
-  <h1>SDL_CreateWindow</h1>
+  <h1>SDL_CreateWindow()</h1>
 
-
+<h2 id="sdl_window-_sdl_createwindowconst-char-title-unsigned-char-x-unsigned-char-y-unsigned-char-w-unsigned-char-h-unsigned-char-flags">SDL_Window<em> _SDL_CreateWindow(const char </em>title, unsigned char x, unsigned char y, unsigned char w, unsigned char h, unsigned char flags);</h2>
+<p><strong><em>Description</em></strong></p>
+<p>Create a window with the specified title and flags.</p>
+<p><strong><em>Input</em></strong></p>
+<ul>
+<li>title The title of the window.</li>
+<li>x The x position - NOT USED in this implementation.</li>
+<li>y The y position - NOT USED in this implementation.</li>
+<li>w The width - NOT USED in this implementation.</li>
+<li>h The height - NOT USED in this implementation.</li>
+<li>flags Window creation flags.</li>
+</ul>
+<p><strong><em>Returns</em></strong></p>
+<ul>
+<li>A pointer to the created SDL_Window, or NULL on failure.</li>
+</ul>
 
 
 
