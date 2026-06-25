@@ -10,5 +10,6 @@ Provides :
 
 # Build doc
 
-mike deploy 2026.3
+For dev
+mike deploy --update-aliases 2026.3 dev --allow-empty
 mike serve

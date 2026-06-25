@@ -5,7 +5,7 @@
 .import load_img_error
 
 .proc IMG_GetError
-    ;;@proto const char* IMG_GetError(void);
+    ;;@proto const char* IMG_GetError;
     ;;@brief Get the last error message from SDL_image.
     ;;@returnsA pointer to a string containing the last error message, or an empty string if there is no error.
 
@@ -15,8 +15,6 @@
 
     rts
 .endproc
-
-
 
 tab_img_error_messages_low:
     .byte <ok_string

@@ -7,6 +7,11 @@ markdown_extensions:
         alternate_style: true
     - admonition
 
+extra:
+  version:
+    provider: mike
+    alias:
+      dev: "2026.3 (dev)"
 
 plugins:
     - git-revision-date
@@ -24,19 +29,23 @@ theme:
       - search.share
 nav:
     - C Functions:
-        - IMG_GetError: _IMG_GetError.md
-        - IMG_Init: _IMG_Init.md
-        - IMG_Load: _IMG_Load.md
-        - SDL_BlitSurface: _SDL_BlitSurface.md
-        - SDL_CreateWindow: _SDL_CreateWindow.md
-        - SDL_Delay: _SDL_Delay.md
-        - SDL_DestroyWindow: _SDL_DestroyWindow.md
-        - SDL_FreeSurface: _SDL_FreeSurface.md
-        - SDL_GetError: _SDL_GetError.md
-        - SDL_GetRelativeMouseState: _SDL_GetRelativeMouseState.md
-        - SDL_GetWindowSurface: _SDL_GetWindowSurface.md
-        - SDL_Init: _SDL_Init.md
-        - SDL_Quit: _SDL_Quit.md
+        - Window:
+            - SDL_CreateWindow(): _SDL_CreateWindow.md
+            - SDL_Delay(): _SDL_Delay.md
+            - SDL_DestroyWindow(): _SDL_DestroyWindow.md
+            - SDL_FreeSurface(): _SDL_FreeSurface.md
+            - SDL_GetError(): _SDL_GetError.md
+            - SDL_GetWindowSurface(): _SDL_GetWindowSurface.md
+            - SDL_BlitSurface(): _SDL_BlitSurface.md
+            - SDL_Init(): _SDL_Init.md
+            - SDL_Quit(): _SDL_Quit.md
+        - Images:
+            - IMG_GetError(): _IMG_GetError.md
+            - IMG_Init(): _IMG_Init.md
+            - IMG_Load(): _IMG_Load.md
+        - mouse:
+            - SDL_GetRelativeMouseState(): _SDL_GetRelativeMouseState.md
+
     - Assembly Routines:
         - Main routines:
             - SDL_BlitSurface: SDL_BlitSurface.md
@@ -58,7 +67,4 @@ nav:
             - IMG_Load: IMG_Load.md
     - Examples:
         - C: c/surface.md
-extra:
-  version:
-    provider: mike
 

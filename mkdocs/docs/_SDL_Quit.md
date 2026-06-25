@@ -1,7 +1,7 @@
-## unsigned char SDL_Quit();
+## void SDL_Quit(void);
 
 
 ***Description***
 
-Quit sdl
+Shutdown the SDL library.
 

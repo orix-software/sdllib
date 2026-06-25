@@ -1,7 +1,14 @@
-## unsigned char SDL_Init(char value)
+## unsigned char SDL_Init(unsigned char flags);
 
 
 ***Description***
 
-Init sdl
+Initialize the SDL library.
 
+***Input***
+
+* flags Initialization flags (e.g., SDL_INIT_VIDEO).
+
+***Returns***
+
+* Returns 0 on success, or a non-zero error code on failure.
