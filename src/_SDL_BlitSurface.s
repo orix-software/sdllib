@@ -15,7 +15,6 @@
     ;;@param dst Pointer to the destination SDL_Surface structure.
     ;;@param dstrect Pointer to SDL_Rect structure. Only the x and y positions are used; width and height are ignored and taken from the source surface.
     ;;@returns Returns 0 on success, or -1 on failure.
-    ;;@note For specific width and height scaling, use SDL_BlitScaled() instead.
 
     ; Drop a & X
     sta     HRS2

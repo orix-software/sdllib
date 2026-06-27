@@ -14,11 +14,11 @@
 .import sdl_all_surface_struct_ptr_high
 
 XREALLOC = $02
-    ;; XREALLOC
-    ;;@inputA contains the new size to allocate low (1 byte)
-    ;;@inputY contains the new size to allocate high (1 byte)
-    ;;@inputX reserved for future use, should be set to 0 by caller
-    ;;@inputMEM_RES contains the pointer to reallocate  (2 bytes)
+    ;;XREALLOC
+    ;;inputA contains the new size to allocate low (1 byte)
+    ;;inputY contains the new size to allocate high (1 byte)
+    ;;inputX reserved for future use, should be set to 0 by caller
+    ;;inputMEM_RES contains the pointer to reallocate  (2 bytes)
 
 .proc sdl_new_surface
     ; returns in A & Y the ptr of struct surface
@@ -27,9 +27,6 @@ XREALLOC = $02
     beq     @allocate
 
 ; $02
-
-
-
 
 @allocate_next_surface:
     ldx     sdl_number_of_surface ; equal to 1

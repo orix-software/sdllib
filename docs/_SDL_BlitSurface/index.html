@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#int-sdl_blitsurfacesdl_surface-src-const-sdl_rect-srcrect-sdl_surface-dst-const-sdl_rect-dstrect" class="md-skip">
+        <a href="#syntax" class="md-skip">
           Skip to content
         </a>
       
@@ -469,9 +469,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#int-sdl_blitsurfacesdl_surface-src-const-sdl_rect-srcrect-sdl_surface-dst-const-sdl_rect-dstrect" class="md-nav__link">
+  <a href="#syntax" class="md-nav__link">
     <span class="md-ellipsis">
-      int SDL_BlitSurface(SDL_Surface src, const SDL_Rect srcrect, SDL_Surface dst, const SDL_Rect dstrect);
+      Syntax
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Details
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input
     </span>
   </a>
   
@@ -1329,9 +1356,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#int-sdl_blitsurfacesdl_surface-src-const-sdl_rect-srcrect-sdl_surface-dst-const-sdl_rect-dstrect" class="md-nav__link">
+  <a href="#syntax" class="md-nav__link">
     <span class="md-ellipsis">
-      int SDL_BlitSurface(SDL_Surface src, const SDL_Rect srcrect, SDL_Surface dst, const SDL_Rect dstrect);
+      Syntax
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Details
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input
     </span>
   </a>
   
@@ -1355,20 +1409,46 @@
 
   <h1>SDL_BlitSurface()</h1>
 
-<h2 id="int-sdl_blitsurfacesdl_surface-src-const-sdl_rect-srcrect-sdl_surface-dst-const-sdl_rect-dstrect">int SDL_BlitSurface(SDL_Surface <em>src, const SDL_Rect </em>srcrect, SDL_Surface <em>dst, const SDL_Rect </em>dstrect);</h2>
-<p><strong><em>Description</em></strong></p>
+<h2 id="syntax">Syntax</h2>
+<p>int SDL_BlitSurface(SDL_Surface <em>src, const SDL_Rect </em>srcrect, SDL_Surface <em>dst, const SDL_Rect </em>dstrect);</p>
+<h2 id="description">Description</h2>
 <p>Perform a fast blit from the source surface to the destination surface.</p>
-<p><strong><em>Input</em></strong></p>
-<ul>
-<li>src Pointer to the source SDL_Surface structure.</li>
-<li>srcrect Currently ignored. Intended for source rectangle definition (not implemented).</li>
-<li>dst Pointer to the destination SDL_Surface structure.</li>
-<li>dstrect Pointer to SDL_Rect structure. Only the x and y positions are used; width and height are ignored and taken from the source surface.</li>
-</ul>
+<h2 id="details">Details</h2>
+<p>In this implementation, the srcrect parameter is currently ignored and the entire source surface is always blitted. For dstrect, only the x and y positions are used to determine the destination position; the width and height are taken from the source surface.</p>
+<h2 id="input">Input</h2>
+<table>
+<thead>
+<tr>
+<th>param</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>src</td>
+<td>src Pointer to the source SDL_Surface structure.</td>
+</tr>
+<tr>
+<td>srcrect</td>
+<td>srcrect Currently ignored. Intended for source rectangle definition (not implemented).</td>
+</tr>
+<tr>
+<td>dst</td>
+<td>dst Pointer to the destination SDL_Surface structure.</td>
+</tr>
+<tr>
+<td>dstrect</td>
+<td>dstrect Pointer to SDL_Rect structure. Only the x and y positions are used; width and height are ignored and taken from the source surface.</td>
+</tr>
+</tbody>
+</table>
 <p><strong><em>Returns</em></strong></p>
 <ul>
 <li>Returns 0 on success, or -1 on failure.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">For specific width and height scaling, use SDL_BlitScaled() instead.</p>
+</div>
 
 
 
@@ -1389,7 +1469,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-06-23
+    2026-06-25
   </span>
 
     

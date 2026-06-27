@@ -1,10 +1,18 @@
-## int IMG_Init(int flags);
+## Syntax
+
+void IMG_Init(int flags);
 
 
-***Description***
+## Description
 
 init img
 
-***Input***
+## Details
+This function is a wrapper that directly jumps to the IMG_Init implementation.
 
-* flags Initialization flags for SDL_image subsystems (does not manage only IMG_INIT_HRS)
+## Input
+
+| param      | Description                          |
+| ----------- | ------------------------------------ |
+| flags |flags Initialization flags for SDL_image subsystems (does not manage only IMG_INIT_HRS) |
+

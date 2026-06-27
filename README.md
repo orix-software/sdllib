@@ -13,3 +13,4 @@ Provides :
 For dev
 mike deploy --update-aliases 2026.3 dev --allow-empty
 mike serve
+git push -u origin gh-pages

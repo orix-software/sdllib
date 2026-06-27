@@ -13,7 +13,6 @@
     ;;@param x Pointer to store the relative x movement.
     ;;@param y Pointer to store the relative y movement.
     ;;@returns Returns 0 (always) in this implementation.
-    ;;@note The actual implementation is in SDL_GetRelativeMouseState. This is a wrapper function.
     sta     RESB
     stx     RESB + 1
 
