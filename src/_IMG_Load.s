@@ -9,6 +9,7 @@
     ;;@param filename The file name of the image to load. Must have .hrs extension.
     ;;@returns A pointer to a new SDL_Surface containing the loaded image, or NULL on failure.
     ;;@note The returned surface should be freed with SDL_FreeSurface() when no longer needed.
+    ;;@kernel Minimal kernel 2026.3
     jmp    IMG_Load
 .endproc
 

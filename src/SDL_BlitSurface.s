@@ -18,7 +18,6 @@
     ;;@inputX src Pointer to the source SDL_Surface structure (high)
     ;;@paramMEM_RES src Pointer to the destination SDL_Surface structure (2 bytes)
     ;;@paramMEM_HRS2  dstrect Pointer to SDL_Rect structure representing the x and y position in the destination surface, or NULL for (0,0). Width and height are taken from the source surface.
-    ;;@note If specific width and height scaling is needed, use SDL_BlitScaled() instead.
     ;;@note This is a simplified implementation that always blits the entire source surface.
 
     dest_surface := RES ; 2 bytes for dst SDL_Surface*

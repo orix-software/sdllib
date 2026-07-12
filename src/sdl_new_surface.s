@@ -25,6 +25,7 @@ XREALLOC = $02
     ; X contains the id of the surface
     lda     sdl_number_of_surface
     beq     @allocate
+    cmp     #SDL_MAX_SURFACE
 
 ; $02
 
@@ -65,7 +66,7 @@ XREALLOC = $02
     rts
 
 @allocate:
-    malloc #(SDL_MAX_SURFACE * SDL_SIZE_DATA_SURFACE + .sizeof(SDL_Surface) * SDL_MAX_SURFACE)
+    malloc #(.sizeof(SDL_Surface) * SDL_MAX_SURFACE)
 
     cmp    #$00
     bne    continue
@@ -87,15 +88,15 @@ continue:
     sta     sdl_all_surface_struct_ptr_low
     sty     sdl_all_surface_struct_ptr_high
 
-    ; Compute offset for data
-    sty     sdl_data_ptr_high
-    clc
-    adc     #(.sizeof(SDL_Surface) * SDL_MAX_SURFACE)
-    bcc     @no_inc_data_ptr
-    inc     sdl_data_ptr_high
+;     ; Compute offset for data
+;     sty     sdl_data_ptr_high
+;     clc
+;     adc     #(.sizeof(SDL_Surface) * SDL_MAX_SURFACE)
+;     bcc     @no_inc_data_ptr
+;     inc     sdl_data_ptr_high
 
-@no_inc_data_ptr:
-    sta     sdl_data_ptr_low
+; @no_inc_data_ptr:
+;     sta     sdl_data_ptr_low
 
     ldx     #$00 ; First surface
     lda     sdl_all_surface_struct_ptr_low

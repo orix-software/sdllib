@@ -29,16 +29,18 @@ theme:
       - search.share
 nav:
     - C Functions:
-        - Window:
-            - SDL_CreateWindow(): _SDL_CreateWindow.md
-            - SDL_Delay(): _SDL_Delay.md
-            - SDL_DestroyWindow(): _SDL_DestroyWindow.md
+        - Common:
             - SDL_FreeSurface(): _SDL_FreeSurface.md
             - SDL_GetError(): _SDL_GetError.md
-            - SDL_GetWindowSurface(): _SDL_GetWindowSurface.md
             - SDL_BlitSurface(): _SDL_BlitSurface.md
             - SDL_Init(): _SDL_Init.md
             - SDL_Quit(): _SDL_Quit.md
+        - Timer:
+            - SDL_Delay(): _SDL_Delay.md
+        - Window:
+            - SDL_CreateWindow(): _SDL_CreateWindow.md
+            - SDL_DestroyWindow(): _SDL_DestroyWindow.md
+            - SDL_GetWindowSurface(): _SDL_GetWindowSurface.md
         - Images:
             - IMG_GetError(): _IMG_GetError.md
             - IMG_Init(): _IMG_Init.md

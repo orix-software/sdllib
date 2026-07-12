@@ -17,8 +17,9 @@
     ;;@brief Load an image from a file and return an SDL_Surface pointer. We only manage files smaller than 64KB. It means that a file larger than 64KB will be loaded but only the first 64KB will be used.
     ;;@inputA ptr to a null-terminated string containing the file path of the image to load (low byte)
     ;;@inputX ptr to a null-terminated string containing the file path of the image to load. (high byte)
-    ;;@returnsA pointer to an SDL_Surface containing the loaded image, or NULL on failure.
-    ;;@returnsY pointer to an SDL_Surface containing the loaded image, or NULL on failure.
+    ;;@returnsA pointer to an SDL_Surface containing the loaded image, or NULL on failure. (low)
+    ;;@returnsY pointer to an SDL_Surface containing the loaded image, or NULL on failure. (high)
+    ;;@kernel Minimal kernel 2026.3
     ;;@```asm
     ;;@  lda  #<filename
     ;;@  ldx  #>filename
@@ -114,7 +115,40 @@ load:
     sty     sdl_surface_struct + 1
     stx     sdl_current_surface_id
 
+    ldy   #$00
+    lda   #$00
+    tax
+    sta   RESB
+    sta   RESB + 1
 
+    lda   fp
+    ldx   #SEEK_CUR
+    BRK_TELEMON XFSEEK
+    ; ; Output since kernel 2025.3
+    ; ;  A and X contains new position (0 to 15 bits)
+    ; ;  RES (2 bytes) returns (16 to 31 bits, eg RES contains 16 to 23 bits and RES+1 contains 23 to 31 bits)
+    ; ;  Or if something is wrong A, X and RES and RES + 1 contains $FF (-1)
+
+    sta     TR6 ; Store size
+    stx     TR7 ; Store size
+
+    ldx     sdl_current_surface_id ; Get surface id
+    ldy     TR7
+    jsr     sdl_surface_update_with_size_by_id
+    ; FIXME returns at the beginning
+
+    ; Let's go at the beginning of the file
+    ldy   #$00
+    lda   #$00
+    tax
+    sta   RESB
+    sta   RESB + 1
+
+    lda   fp
+    ldx   #SEEK_SET
+    BRK_TELEMON XFSEEK
+
+    ldx     sdl_current_surface_id ; Get surface id
     jsr     sdl_get_surface_data_ptr_by_id
 
 @no_carry2:
@@ -136,8 +170,7 @@ load:
     ldy     sdl_tmp
     ; Update size
 
-    ldx     sdl_current_surface_id ; Get surface id
-    jsr     sdl_surface_update_with_size_by_id
+
 
     fclose(fp)
 

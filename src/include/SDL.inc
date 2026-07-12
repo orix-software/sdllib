@@ -7,7 +7,7 @@ SDL_ERROR_MESSAGE_LENGTH = 100
 
 .define SDL_CAN_NOT_BE_STORE_INTO_READ_ONLY_STORAGE $FE
 
-.define SDL_MAX_SURFACE 11 ; Can not be greater than 127 !
+.define SDL_MAX_SURFACE 1 ; Can not be greater than 127 !
 
 .define SDL_SIZE_DATA_SURFACE 500
 
