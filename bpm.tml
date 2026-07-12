@@ -34,9 +34,6 @@ enable_build = "True"
 rom_compatible = "False"
 lib = "True"
 web_doc_command = "mkdocs build"
-#oricutron_path = "/mnt/c/Users/plifp/OneDrive/oric/projets/github/jedeoric/oricutron_plugins_usbmouse/oricutron"
-oricutron_path = "/mnt/c/Users/plifp/OneDrive/oric/projets/jedeoric/oricutron_orixdebug_plugin/oricutron"
-#C:\Users\plifp\OneDrive\oric\projets\jedeoric\oricutron_orixdebug_plugin
 mike_management = "True"
 
 [dependencies]
