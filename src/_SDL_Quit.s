@@ -3,7 +3,9 @@
 .import SDL_Quit
 
 .proc _SDL_Quit
-    ;;@proto unsigned char SDL_Quit();
-    ;;@brief Quit sdl
+    ;;@proto void SDL_Quit(void);
+    ;;@brief Shutdown the SDL library.
+    ;;@details This function cleans up all initialized SDL subsystems and deallocates any resources allocated by them. It should be called before exiting the program.
+
     jmp    SDL_Quit
 .endproc

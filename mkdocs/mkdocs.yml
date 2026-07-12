@@ -1,37 +1,23 @@
-site_name: SDL LIB 2025.4 DOCUMENTATION
+site_name: SDL LIB DOCUMENTATION
 
 site_dir: ../docs/
 
 markdown_extensions:
-#     - pymdownx.highlight
-#     - pymdownx.inlinehilite
     - pymdownx.tabbed:
         alternate_style: true
-#     - pymdownx.snippets
-#     - pymdownx.critic
-#     - pymdownx.caret
-#     - pymdownx.keys
-#     - pymdownx.mark
-#     - pymdownx.tilde
-#     - attr_list
-#     - md_in_html
     - admonition
-#     - pymdownx.details
-    # - pymdownx.superfences:
-    #     custom_fences:
-    #       - name: mermaid
-    #         class: mermaid
-    #         format: !!python/name:pymdownx.superfences.fence_code_format
-#     - tables
-#     - pymdownx.emoji:
-#         emoji_index: !!python/name:materialx.emoji.twemoji
-#         emoji_generator: !!python/name:materialx.emoji.to_svg
+
+extra:
+  version:
+    provider: mike
+    alias:
+      dev: "2026.3 (dev)"
 
 plugins:
- - git-revision-date
- - search
- - markmap
-#  - mkdocs-video
+    - git-revision-date
+    - search
+    - markmap
+
 
 dev_addr: '172.30.72.43:8002'
 
@@ -42,41 +28,45 @@ theme:
       - search.highlight
       - search.share
 nav:
-    - Introduction: index.md
-    - Versions:
-        - 2025.4:
-            - routines/functions: 2025.4/index.md
+    - C Functions:
+        - Common:
+            - SDL_FreeSurface(): _SDL_FreeSurface.md
+            - SDL_GetError(): _SDL_GetError.md
+            - SDL_BlitSurface(): _SDL_BlitSurface.md
+            - SDL_Init(): _SDL_Init.md
+            - SDL_Quit(): _SDL_Quit.md
+        - Timer:
+            - SDL_Delay(): _SDL_Delay.md
+        - Window:
+            - SDL_CreateWindow(): _SDL_CreateWindow.md
+            - SDL_DestroyWindow(): _SDL_DestroyWindow.md
+            - SDL_GetWindowSurface(): _SDL_GetWindowSurface.md
+        - Images:
+            - IMG_GetError(): _IMG_GetError.md
+            - IMG_Init(): _IMG_Init.md
+            - IMG_Load(): _IMG_Load.md
+        - mouse:
+            - SDL_GetRelativeMouseState(): _SDL_GetRelativeMouseState.md
 
+    - Assembly Routines:
+        - Main routines:
+            - SDL_BlitSurface: SDL_BlitSurface.md
+            - SDL_CreateTextureFromSurface: SDL_CreateTextureFromSurface.md
+            - SDL_CreateWindow: SDL_CreateWindow.md
+            - SDL_Delay: SDL_Delay.md
+            - SDL_DestroyWindow: SDL_DestroyWindow.md
+            - SDL_FreeSurface: SDL_FreeSurface.md
+            - SDL_GetRelativeMouseState: SDL_GetRelativeMouseState.md
+            - SDL_GetWindowSurface: SDL_GetWindowSurface.md
+            - SDL_Init: SDL_Init.md
+            - SDL_Quit: SDL_Quit.md
+            - sdl_get_surface_data_ptr_by_id: sdl_get_surface_data_ptr_by_id.md
+            - sdl_new_surface: sdl_new_surface.md
+            - sdl_surface_update_with_size_by_id: sdl_surface_update_with_size_by_id.md
+        - Image Functions:
+            - IMG_GetError: IMG_GetError.md
+            - IMG_Init: IMG_Init.md
+            - IMG_Load: IMG_Load.md
+    - Examples:
+        - C: c/surface.md
 
-    # - Routines:
-    #     - ch376_check_exist: api/ch376_check_exist.md
-    #     - ch376_dir_create: ch376_dir_create.md
-    #     - ch376_disk_capacity: ch376_disk_capacity.md
-    #     - ch376_disk_mount: ch376_disk_mount.md
-        # - ch376_disk_query
-        # - ch376_file_close
-        # - ch376_file_create
-        # - ch376_file_erase
-        # - ch376_file_open
-        # - ch376_get_descr
-        # - ch376_get_file_size
-        # - ch376_ic_get_ver
-        # - ch376_lib_version
-        # - ch376_reset_all
-        # - ch376_seek_file
-        # - ch376_set_address
-        # - ch376_set_config
-        # - ch376_set_file_name
-        # - ch376_set_usb_addr
-        # - ch376_set_usb_mode
-        # - ch376_set_usb_speed
-        # - ch376_wait_response
-
-# extra_css:
-#     - stylesheets/extra.css
-# extra:
-#     social:
-#         - icon: fontawesome/brands/twitter
-#           link: https://twitter.com/OrixTwil
-#         - icon: fontawesome/brands/youtube
-#           link: https://www.youtube.com/user/jede06600/videos

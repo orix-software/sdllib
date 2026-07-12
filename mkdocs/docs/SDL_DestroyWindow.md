@@ -1,0 +1,4 @@
+---
+
+## SDL_DestroyWindow
+

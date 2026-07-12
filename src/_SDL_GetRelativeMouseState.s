@@ -7,10 +7,12 @@
 .import popax
 
 .proc _SDL_GetRelativeMouseState
-    ;;@proto unsigned char SDL_GetRelativeMouseState(unsigned char *x, unsigned char *y)
-    ;;@brief Get relative mouse state
-    ;;@inputPARAM_x : ptr x relative movement
-    ;;@inputPARAM_y : ptr y relative movement
+    ;;@proto unsigned char SDL_GetRelativeMouseState(unsigned char *x, unsigned char *y);
+    ;;@brief Get the relative mouse state (movement since last call).
+    ;;@details This function retrieves the relative mouse movement (in pixels) since the last call. The values are stored in the provided x and y pointers.
+    ;;@param x Pointer to store the relative x movement.
+    ;;@param y Pointer to store the relative y movement.
+    ;;@returns Returns 0 (always) in this implementation.
     sta     RESB
     stx     RESB + 1
 
